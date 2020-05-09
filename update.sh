@@ -20,7 +20,7 @@ cd ..
 echo "generating gitignore_global"
 bash concat.sh
 
-if [ -z "$(git status --porcelain)"  ]; then
+if [ -z "$(git diff .gitignore_global)" ]; then
     # Working directory clean
     echo "Working directory is clean. No need to commit."
   else
