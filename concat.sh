@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 dst=".gitignore_global"
 \ls -1 ./gitignore/Global/*.gitignore | while read gitignore; do
   echo "##" >> $dst
@@ -8,3 +10,4 @@ dst=".gitignore_global"
   cat $gitignore >> $dst
   echo "" >> $dst
 done
+echo "done"
