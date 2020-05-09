@@ -1,9 +1,6 @@
 name: test
 
-on:
-  - schedule:
-      - cron: 0 0 * * *
-  - push  # TODO remove me later
+on: [push]
 
 jobs:
   build:
