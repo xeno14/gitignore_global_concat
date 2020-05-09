@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 echo "configuring git"
 git config --global user.name "xeno14"
 git config --global user.email "integral14.dev@gmail.com"
