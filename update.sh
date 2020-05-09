@@ -1,15 +1,17 @@
 #!/bin/bash
 
+echo "configuring git"
 git config --global user.name "xeno14"
 git config --global user.email "integral14.dev@gmail.com"
-
 git remote set-url origin https://xeno14:${GITHUB_TOKEN}@github.com/xeno14/gitignore_global_concat
 
+echo "updating submodule"
 git submodule update --init
 git submodule foreach git fetch
 git submodule foreach git rebase origin/master
 
-bash concat.sh
+echo "generating gitignore_global"
+/bin/bash concat.sh
 
 if [ -z "$(git status --porcelain)"  ]; then
     # Working directory clean
