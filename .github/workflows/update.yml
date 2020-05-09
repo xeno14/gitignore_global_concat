@@ -12,4 +12,4 @@ jobs:
     - name: update
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: ./update.sh
+      run: /bin/bash update.sh
