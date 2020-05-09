@@ -13,6 +13,7 @@ git submodule foreach git fetch
 cd gitignore
 git checkout master
 git rebase origin/master
+GITIGNORE_HASH=$(git rev-parse --short HEAD)
 cd ..
 
 echo "generating gitignore_global"
@@ -24,10 +25,6 @@ if [ -z "$(git status --porcelain)"  ]; then
   else
     # Uncommitted changes
     echo "Detected upstream changes. The latest commit=${GITIGNORE_HASH}."
-
-    cd gitignore
-    GITIGNORE_HASH=$(git rev-parse --short HEAD)
-    cd ..
 
     git commit -a -m"[updater] gitignore ${GITIGNORE_HASH}"
     git push origin HEAD
