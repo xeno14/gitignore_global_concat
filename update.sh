@@ -10,7 +10,10 @@ git remote set-url origin https://xeno14:${GITHUB_TOKEN}@github.com/xeno14/gitig
 echo "updating submodule"
 git submodule update --init
 git submodule foreach git fetch
-git submodule foreach git rebase origin/master
+cd gitignore
+git checkout master
+git rebase origin/master
+cd ..
 
 echo "generating gitignore_global"
 /bin/bash concat.sh
