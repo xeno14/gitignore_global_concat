@@ -1,0 +1,18 @@
+name: test
+
+on:
+  - schedule:
+      - cron: 0 0 * * *
+  - push  # TODO remove me later
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: update
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: ./update.sh
