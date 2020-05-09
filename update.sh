@@ -27,7 +27,7 @@ if [ -z "$(git diff .gitignore_global)" ]; then
     # Uncommitted changes
     echo "Detected upstream changes. The latest commit=${GITIGNORE_HASH}."
 
-    git commit -a -m"[updater] gitignore ${GITIGNORE_HASH}"
+    git commit -a -m"[GitHub Actions] ${GITIGNORE_HASH}"
     git push origin HEAD
 
     echo "Done."
